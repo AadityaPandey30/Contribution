@@ -2,13 +2,44 @@
 
 import { useState, useEffect } from 'react';
 
+// Dynamic imports for confetti (optional dependencies)
+let Confetti = null;
+let useWindowSize = null;
+
+try {
+  const confettiModule = require('react-confetti');
+  const reactUseModule = require('react-use');
+  Confetti = confettiModule.default || confettiModule;
+  useWindowSize = reactUseModule.useWindowSize;
+} catch (e) {
+  console.log('Confetti libraries not installed');
+}
+
 export default function HomePage() {
   const [leaderboard, setLeaderboard] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [showConfetti, setShowConfetti] = useState(true);
+  
+  // Get window size (with fallback if react-use not available)
+  const windowSize = useWindowSize ? useWindowSize() : { width: 1200, height: 800 };
 
   useEffect(() => {
     fetchLeaderboard();
+    
+    // Show confetti and hide after 5 seconds
+    if (Confetti) {
+      console.log('Showing confetti!');
+      const timer = setTimeout(() => {
+        console.log('Hiding confetti');
+        setShowConfetti(false);
+      }, 5000);
+      
+      return () => clearTimeout(timer);
+    } else {
+      console.log('Confetti library not available');
+      setShowConfetti(false);
+    }
   }, []);
 
   const fetchLeaderboard = async () => {
@@ -57,6 +88,15 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-8 px-4">
+    {/* Show confetti when available and enabled */}
+    {Confetti && showConfetti && (
+      <Confetti
+        width={windowSize.width}
+        height={windowSize.height}
+        numberOfPieces={300}
+        recycle={false}
+      />
+    )}
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold text-gray-800 mb-2">🏆 Leaderboard</h1>

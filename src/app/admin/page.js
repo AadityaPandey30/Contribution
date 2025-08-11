@@ -158,7 +158,7 @@ export default function AdminPage() {
                   id="newUserName"
                   value={newUserName}
                   onChange={(e) => setNewUserName(e.target.value)}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+                  className="w-full px-4 py-2 border text-gray-600 border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
                   placeholder="Enter user name"
                   disabled={isSubmitting}
                 />
@@ -185,7 +185,7 @@ export default function AdminPage() {
                   id="selectedUser"
                   value={selectedUser}
                   onChange={(e) => setSelectedUser(e.target.value)}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+                  className="w-full px-4 py-2 border text-gray-600 border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
                   disabled={isSubmitting}
                 >
                   <option value="">Choose a user...</option>
@@ -205,7 +205,7 @@ export default function AdminPage() {
                   id="pointsToAdd"
                   value={pointsToAdd}
                   onChange={(e) => setPointsToAdd(e.target.value)}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+                  className="w-full px-4 text-gray-600 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
                   placeholder="Enter points"
                   disabled={isSubmitting}
                 />
