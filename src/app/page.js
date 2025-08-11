@@ -87,7 +87,7 @@ export default function HomePage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-8 px-4">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-8 px-4 relative">
     {/* Show confetti when available and enabled */}
     {Confetti && showConfetti && (
       <Confetti
@@ -99,7 +99,7 @@ export default function HomePage() {
     )}
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-gray-800 mb-2">🏆 Leaderboard</h1>
+          <h1 className="text-4xl font-bold text-gray-800 mb-2">🏆 YesCity Leaderboard</h1>
           <p className="text-gray-600">Competition rankings and scores</p>
         </div>
 
@@ -172,13 +172,13 @@ export default function HomePage() {
         <div className="text-center mt-8">
           <button 
             onClick={fetchLeaderboard}
-            className="px-6 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors font-medium"
+            className="px-6 py-2 mb-6 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors font-medium"
           >
             Refresh Leaderboard
           </button>
         </div>
 
-        <footer className='absolute z-10 bottom-1 right-1 left-0 w-full text-lg text-amber-600'>
+        <footer className='absolute z-10 bottom-1 right-1 left-0 w-full text-lg text-amber-600 text-center'>
             Made for you by <a className='underline' href="https://www.linkedin.com/in/aaditya-pandey-ab2829257/">Aaditya</a>
         </footer>
       </div>
