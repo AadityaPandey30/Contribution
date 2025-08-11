@@ -178,7 +178,7 @@ export default function HomePage() {
           </button>
         </div>
 
-        <footer className='absolute z-10 bottom-1 right-1 left-0 w-full text-lg text-amber-600 text-center'>
+        <footer className='absolute z-10 bottom-1 right-1 left-0 w-full text-sm text-amber-600 text-center'>
             Made for you by <a className='underline' href="https://www.linkedin.com/in/aaditya-pandey-ab2829257/">Aaditya</a>
         </footer>
       </div>
