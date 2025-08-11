@@ -180,7 +180,7 @@ export default function AdminPage() {
             <h2 className="text-2xl font-bold text-gray-800 mb-6">👤 Add New User</h2>
             <form onSubmit={handleAddUser} className="space-y-4">
               <input type="text" value={newUserName} onChange={(e) => setNewUserName(e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg" placeholder="Enter user name" disabled={isSubmitting} />
+                className="w-full px-4 py-2 border text-gray-600 border-gray-300 rounded-lg" placeholder="Enter user name" disabled={isSubmitting} />
               <button type="submit" disabled={isSubmitting}
                 className="w-full py-2 px-4 bg-purple-600 text-white rounded-lg hover:bg-purple-700">{isSubmitting ? 'Adding...' : 'Add User (10 points)'}</button>
             </form>
@@ -191,12 +191,12 @@ export default function AdminPage() {
             <h2 className="text-2xl font-bold text-gray-800 mb-6">🎯 Add Points</h2>
             <form onSubmit={handleAddPoints} className="space-y-4">
               <select value={selectedUser} onChange={(e) => setSelectedUser(e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg" disabled={isSubmitting}>
+                className="w-full px-4 py-2 border border-gray-300 text-gray-600 rounded-lg" disabled={isSubmitting}>
                 <option value="">Choose a user...</option>
                 {users.map((user) => <option key={user._id} value={user._id}>{user.name} ({user.points} points)</option>)}
               </select>
               <input type="number" value={pointsToAdd} onChange={(e) => setPointsToAdd(e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg" placeholder="Enter points" disabled={isSubmitting} />
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg text-gray-600" placeholder="Enter points" disabled={isSubmitting} />
               <button type="submit" disabled={isSubmitting}
                 className="w-full py-2 px-4 bg-green-600 text-white rounded-lg hover:bg-green-700">{isSubmitting ? 'Adding Points...' : 'Add Points'}</button>
             </form>
