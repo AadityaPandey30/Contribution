@@ -1,8 +1,21 @@
 "use client";
 
 import React, { useEffect, useMemo, useState } from "react";
-import { Star, Trophy, Gift, Users, Zap, ArrowRight, Sparkles, ShieldCheck, Target, BarChart3, Clock, CheckCircle2, ChevronRight } from "lucide-react";
-
+import {
+  Star,
+  Trophy,
+  Gift,
+  Users,
+  Zap,
+  ArrowRight,
+  Sparkles,
+  ShieldCheck,
+  Target,
+  BarChart3,
+  Clock,
+  CheckCircle2,
+  ChevronRight,
+} from "lucide-react";
 
 export default function RewardsLanding() {
   const [animate, setAnimate] = useState(false);
@@ -20,12 +33,12 @@ export default function RewardsLanding() {
 
   // Copy-driven data
   const pointsData = [
-    { action: "Sign‑up", points: "+2", limit: "One‑time", icon: "🎯" },
-    { action: "Profile completion", points: "+3", limit: "One‑time", icon: "✨" },
-    { action: "Daily check‑in", points: "+1", limit: "Max 20/month", icon: "🔥" },
-    { action: "Write a review", points: "+2", limit: "Max 2/week", icon: "⭐" },
-    { action: "Add/Update city data", points: "+3–5", limit: "Max 3/week", icon: "📝" },
-    { action: "Referral (verified)", points: "+5", limit: "Max 2/month", icon: "🤝" },
+    { action: "Sign‑up", points: "+2", limit: "One‑time" },
+    { action: "Profile completion", points: "+3", limit: "One‑time" },
+    { action: "Daily check‑in", points: "+1", limit: "Max 20/month" },
+    { action: "Write a review", points: "+2", limit: "Max 2/week" },
+    { action: "Add/Update city data", points: "+3–5", limit: "Max 3/week" },
+    { action: "Referral (verified)", points: "+5", limit: "Max 2/month" },
   ];
 
   const levels = [
@@ -95,7 +108,7 @@ export default function RewardsLanding() {
   }, [monthlyPoints]);
 
   return (
-    <div className="min-h-screen bg-white text-slate-800">
+    <div className="min-h-screen bg-white text-slate-800 font-poppins">
       <a
         href="#main"
         className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:bg-white focus:text-slate-900 focus:px-4 focus:py-2 focus:rounded-lg focus:ring-2 focus:ring-blue-500"
@@ -111,7 +124,11 @@ export default function RewardsLanding() {
             aria-label="Primary"
           >
             <div className="flex items-center gap-3">
-              <img src="./YCNewLogo.png" alt="YesCity" className="h-10 w-fit m-auto" />
+              <img
+                src="./YCNewLogo.png"
+                alt="YesCity"
+                className="h-10 w-fit m-auto"
+              />
             </div>
             <ul className="hidden md:flex items-center gap-6 text-lg font-semibold text-slate-600">
               <li>
@@ -153,9 +170,9 @@ export default function RewardsLanding() {
           </nav>
         </div>
 
-        <div className="mx-auto max-w-7xl px-6 pb-16 pt-6 text-center">
+        <div className="mx-auto max-w-7xl px-6 pb-8 pt-6 text-left md:text-center">
           <h1 className="text-4xl md:text-6xl font-black tracking-tight text-slate-900 pt-8">
-             Rewards Program
+            Rewards Program
           </h1>
           <p className="mx-auto mt-6 max-w-3xl text-lg md:text-xl text-slate-600">
             Turn your contributions into{" "}
@@ -169,58 +186,136 @@ export default function RewardsLanding() {
 
       <main id="main">
         {/* How it Works */}
-        <section id="how" className="mx-auto max-w-7xl px-6 py-16">
-          <SectionTitle eyebrow="Simple, fair, motivating" title="How it works" subtitle="Earn points, rise through levels, unlock exclusive YesCity perks. Partner coupons unlock only after month 4." />
+        <section id="how" className="mx-auto max-w-7xl px-6 py-8">
+          <SectionTitle
+            eyebrow="Simple, fair, motivating"
+            title="How it works"
+            subtitle="Earn points, rise through levels, unlock exclusive YesCity perks. Partner coupons unlock only after month 4."
+          />
 
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            <FeatureCard icon={<Zap className="h-6 w-6" />} title="Earn points" desc="Contribute reviews, verified updates, referrals and more—within fair caps to protect quality." />
-            <FeatureCard icon={<Trophy className="h-6 w-6" />} title="Reach levels" desc="Explorer • Builder • Influencer • Legend—each tier unlocks status, visibility, and access." />
-            <FeatureCard icon={<Gift className="h-6 w-6" />} title="Unlock rewards" desc="Early access, Travel Buddy featuring, Insider community, and later—brand partner benefits." />
+            <FeatureCard
+              icon={<Zap className="h-6 w-6" />}
+              title="Earn points"
+              desc="Contribute reviews, verified updates, referrals and more—within fair caps to protect quality."
+            />
+            <FeatureCard
+              icon={<Trophy className="h-6 w-6" />}
+              title="Reach levels"
+              desc="Explorer • Builder • Influencer • Legend—each tier unlocks status, visibility, and access."
+            />
+            <FeatureCard
+              icon={<Gift className="h-6 w-6" />}
+              title="Unlock rewards"
+              desc="Early access, Travel Buddy featuring, Insider community, and later—brand partner benefits."
+            />
           </div>
         </section>
 
         {/* Points – table with mobile cards */}
-        <section id="points" className="mx-auto max-w-7xl px-6 py-16">
-          <SectionTitle eyebrow="Every action counts" title="Earn points for every move" subtitle="Progress is intentionally steady—expect a minimum of 2 months to reach your first reward." />
+        <section id="points" className="mx-auto max-w-7xl px-6 py-8">
+          <SectionTitle
+            eyebrow="Every action counts"
+            title="Earn points for every move"
+            subtitle="Progress is intentionally steady—expect a minimum of 2 months to reach your first reward."
+          />
 
           {/* Estimator */}
           <div className="mt-8 grid gap-6 lg:grid-cols-2">
             <div className="rounded-2xl border border-blue-100 bg-white p-6 shadow-sm">
               <div className="mb-4 flex items-center gap-2">
                 <BarChart3 className="h-5 w-5 text-blue-600" />
-                <h3 className="text-lg font-bold">Your monthly points estimate</h3>
+                <h3 className="text-lg font-bold">
+                  Your monthly points estimate
+                </h3>
               </div>
               <div className="grid gap-4">
-                <ToggleRow label="Daily check‑in (20 pts/mo)" checked={checkin} onChange={setCheckin} />
-                <RangeRow label="Reviews per week" value={reviewsPerWeek} setValue={setReviewsPerWeek} max={2} unit="× 2 pts" />
-                <RangeRow label="Data updates per week" value={updatesPerWeek} setValue={setUpdatesPerWeek} max={3} unit="× ~4 pts" />
-                <RangeRow label="Referrals per month" value={referralsPerMonth} setValue={setReferralsPerMonth} max={2} unit="× 5 pts" />
+                <ToggleRow
+                  label="Daily check‑in (20 pts/mo)"
+                  checked={checkin}
+                  onChange={setCheckin}
+                />
+                <RangeRow
+                  label="Reviews per week"
+                  value={reviewsPerWeek}
+                  setValue={setReviewsPerWeek}
+                  max={2}
+                  unit="× 2 pts"
+                />
+                <RangeRow
+                  label="Data updates per week"
+                  value={updatesPerWeek}
+                  setValue={setUpdatesPerWeek}
+                  max={3}
+                  unit="× ~4 pts"
+                />
+                <RangeRow
+                  label="Referrals per month"
+                  value={referralsPerMonth}
+                  setValue={setReferralsPerMonth}
+                  max={2}
+                  unit="× 5 pts"
+                />
               </div>
               <div className="mt-6 rounded-xl bg-gradient-to-r from-blue-50 to-sky-50 p-4">
-                <p className="text-sm text-slate-600">Estimated monthly points</p>
-                <div className="mt-1 text-3xl font-black text-slate-900">{monthlyPoints}</div>
-                <p className="mt-2 text-sm text-slate-600">Estimated months to Explorer (200 pts): <span className="font-bold text-slate-900">{monthsToExplorer}</span> <span className="text-slate-500">(minimum 2 months)</span></p>
+                <p className="text-sm text-slate-600">
+                  Estimated monthly points
+                </p>
+                <div className="mt-1 text-3xl font-black text-slate-900">
+                  {monthlyPoints}
+                </div>
+                <p className="mt-2 text-sm text-slate-600">
+                  Estimated months to Explorer (200 pts):{" "}
+                  <span className="font-bold text-slate-900">
+                    {monthsToExplorer}
+                  </span>{" "}
+                  <span className="text-slate-500">(minimum 2 months)</span>
+                </p>
               </div>
             </div>
 
             {/* Responsive table/cards */}
-            <div className="rounded-2xl border border-blue-100 bg-white p-0 shadow-sm overflow-hidden">
-              <div className="hidden sm:grid grid-cols-3 gap-4 bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 px-6 py-4 text-white">
-                <div className="font-black">Action</div>
-                <div className="text-center font-black">Points</div>
-                <div className="text-right font-black">Limit</div>
+            <div className="rounded-2xl border border-blue-200 bg-white shadow-md overflow-hidden">
+              {/* Header */}
+              <div className="hidden sm:grid grid-cols-3 gap-4 bg-gradient-to-r from-blue-700 via-blue-800 to-blue-900 px-6 py-4 text-white">
+                <div className="font-bold tracking-wide">Action</div>
+                <div className="text-center font-bold tracking-wide">
+                  Points
+                </div>
+                <div className="text-right font-bold tracking-wide">Limit</div>
               </div>
-              <ul className="divide-y divide-blue-50">
+
+              {/* Mobile Header */}
+              <div className="sm:hidden bg-gradient-to-r from-blue-700 to-blue-900 px-4 py-3 text-white font-bold tracking-wide text-lg text-center">
+                Actions & Rewards
+              </div>
+
+              {/* List */}
+              <ul className="divide-y divide-blue-100">
                 {pointsData.map((row, idx) => (
-                  <li key={idx} className="grid grid-cols-1 sm:grid-cols-3 items-center gap-2 px-6 py-4 hover:bg-blue-50/40">
-                    <div className="flex items-center gap-3 font-semibold text-slate-900">
-                      <span aria-hidden className="text-xl">{row.icon}</span>
-                      <span>{row.action}</span>
+                  <li
+                    key={idx}
+                    className="grid grid-cols-1 sm:grid-cols-3 items-center gap-3 px-6 py-5 transition-colors hover:bg-blue-50"
+                  >
+                    {/* Action */}
+                    <div className="flex items-center gap-3 font-semibold text-slate-800">
+                      <span className="w-10 h-10 flex items-center justify-center rounded-xl bg-blue-100 text-blue-700 font-bold shadow-sm">
+                        {row.action[0]} {/* Action initial as icon */}
+                      </span>
+                      <span className="truncate">{row.action}</span>
                     </div>
-                    <div className="sm:text-center">
-                      <span className="inline-block font-black text-2xl bg-gradient-to-r from-blue-700 to-blue-900 bg-clip-text text-transparent">{row.points}</span>
+
+                    {/* Points */}
+                    <div className="sm:text-center mt-2 sm:mt-0">
+                      <span className="inline-block font-extrabold text-2xl bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
+                        {row.points}
+                      </span>
                     </div>
-                    <div className="sm:text-right text-slate-600 font-medium">{row.limit}</div>
+
+                    {/* Limit */}
+                    <div className="sm:text-right text-slate-600 font-medium text-sm sm:text-base">
+                      {row.limit}
+                    </div>
                   </li>
                 ))}
               </ul>
@@ -229,33 +324,61 @@ export default function RewardsLanding() {
 
           {/* Fair play note */}
           <div className="mt-6 flex flex-wrap items-center gap-3 text-sm text-slate-600">
-            <CheckCircle2 className="h-4 w-4 text-green-600" /> Daily/weekly caps prevent spam; only verified contributions earn points.
+            <CheckCircle2 className="h-4 w-4 text-green-600" /> Daily/weekly
+            caps prevent spam; only verified contributions earn points.
           </div>
         </section>
 
         {/* Levels */}
         <section id="levels" className="mx-auto max-w-7xl px-6 py-16">
-          <SectionTitle eyebrow="Aspirational, time‑gated" title="Choose your path" subtitle="Each level unlocks recognition, reach and access. Partner coupons appear only after month 4." />
+          <SectionTitle
+            eyebrow="Aspirational, time‑gated"
+            title="Choose your path"
+            subtitle="Each level unlocks recognition, reach and access. Partner coupons appear only after month 4."
+          />
 
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {levels.map((lvl, i) => (
-              <div key={lvl.name} className={`relative overflow-hidden rounded-3xl border border-white bg-gradient-to-br ${lvl.gradient} p-1 shadow-sm transition-transform motion-safe:duration-300 motion-safe:hover:-translate-y-1`}>
+              <div
+                key={lvl.name}
+                className={`relative overflow-hidden rounded-3xl border border-white bg-gradient-to-br ${lvl.gradient} p-1 shadow-sm transition-transform motion-safe:duration-300 motion-safe:hover:-translate-y-1`}
+              >
                 <div className="rounded-[22px] bg-white p-6">
                   <div className="mb-4 flex items-center justify-between">
                     <div>
-                      <h3 className="text-xl font-black tracking-tight text-slate-900">{lvl.name}</h3>
-                      <p className="text-xs font-bold uppercase tracking-wider text-blue-700/80">{lvl.tag}</p>
+                      <h3 className="text-xl font-black tracking-tight text-slate-900">
+                        {lvl.name}
+                      </h3>
+                      <p className="text-xs font-bold uppercase tracking-wider text-blue-700/80">
+                        {lvl.tag}
+                      </p>
                     </div>
-                    <div className="rounded-full bg-sky-100 px-3 py-1 text-xs font-bold text-sky-800">{lvl.months}</div>
+                    <div className="rounded-full bg-sky-100 px-3 py-1 text-xs font-bold text-sky-800">
+                      {lvl.months}
+                    </div>
                   </div>
-                  <div className="text-3xl font-black bg-gradient-to-r from-blue-700 to-blue-900 bg-clip-text text-transparent">{lvl.points} pts</div>
+                  <div className="text-3xl font-black bg-gradient-to-r from-blue-700 to-blue-900 bg-clip-text text-transparent">
+                    {lvl.points} pts
+                  </div>
                   <ul className="mt-4 space-y-2">
                     {lvl.rewards.map((r) => (
-                      <li key={r} className="flex items-start gap-2 text-sm text-slate-700"><Star className="mt-0.5 h-4 w-4 text-blue-600" fill="currentColor" /><span>{r}</span></li>
+                      <li
+                        key={r}
+                        className="flex items-start gap-2 text-sm text-slate-700"
+                      >
+                        <Star
+                          className="mt-0.5 h-4 w-4 text-blue-600"
+                          fill="currentColor"
+                        />
+                        <span>{r}</span>
+                      </li>
                     ))}
                   </ul>
                   {i === 3 && (
-                    <p className="mt-3 text-xs font-semibold text-slate-500">* Partner coupons are introduced after month 4 across the program.</p>
+                    <p className="mt-3 text-xs font-semibold text-slate-500">
+                      * Partner coupons are introduced after month 4 across the
+                      program.
+                    </p>
                   )}
                 </div>
               </div>
@@ -265,11 +388,24 @@ export default function RewardsLanding() {
 
         {/* FAQ */}
         <section id="faq" className="mx-auto max-w-7xl px-6 pb-24">
-          <SectionTitle eyebrow="Good to know" title="FAQ" subtitle="Quick answers about timing, fairness and costs." />
+          <SectionTitle
+            eyebrow="Good to know"
+            title="FAQ"
+            subtitle="Quick answers about timing, fairness and costs."
+          />
           <div className="mt-8 grid gap-6 lg:grid-cols-3">
-            <FAQ q="When do I get my first reward?" a="Explorer (200 pts) is intentionally paced—expect at least 2 months. Your actual time depends on your monthly activity within fair caps." />
-            <FAQ q="Are there cash rewards early on?" a="No. Early rewards focus on status, visibility and exclusive YesCity features. Brand partner coupons appear after month 4." />
-            <FAQ q="How do caps work?" a="Daily/weekly limits safeguard quality: check‑ins (20/mo), reviews (max 2/wk), updates (max 3/wk), referrals (max 2/mo). Only verified actions count." />
+            <FAQ
+              q="When do I get my first reward?"
+              a="Explorer (200 pts) is intentionally paced—expect at least 2 months. Your actual time depends on your monthly activity within fair caps."
+            />
+            <FAQ
+              q="Are there cash rewards early on?"
+              a="No. Early rewards focus on status, visibility and exclusive YesCity features. Brand partner coupons appear after month 4."
+            />
+            <FAQ
+              q="How do caps work?"
+              a="Daily/weekly limits safeguard quality: check‑ins (20/mo), reviews (max 2/wk), updates (max 3/wk), referrals (max 2/mo). Only verified actions count."
+            />
           </div>
         </section>
       </main>
@@ -277,8 +413,13 @@ export default function RewardsLanding() {
       {/* Desktop CTA */}
       <section className="mx-auto hidden max-w-7xl items-center justify-between gap-6 rounded-3xl border border-blue-100 bg-white px-6 py-8 shadow-sm md:flex">
         <div>
-          <h3 className="text-2xl font-black tracking-tight">Ready to rise through the ranks?</h3>
-          <p className="mt-1 text-slate-600">Start small, stay consistent, and unlock perks that put you at the heart of YesCity.</p>
+          <h3 className="text-2xl font-black tracking-tight">
+            Ready to rise through the ranks?
+          </h3>
+          <p className="mt-1 text-slate-600">
+            Start small, stay consistent, and unlock perks that put you at the
+            heart of YesCity.
+          </p>
         </div>
         <button className="inline-flex items-center gap-2 rounded-full bg-blue-600 px-6 py-3 font-bold text-white shadow-sm hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500">
           Start earning points <ArrowRight className="h-5 w-5" />
@@ -290,9 +431,9 @@ export default function RewardsLanding() {
         <div className="mx-auto flex max-w-md items-center justify-between gap-3 rounded-2xl border border-blue-100 bg-white px-4 py-3">
           <div className="text-sm">
             <div className="font-black">Climb the ladder</div>
-            <div className="text-slate-600">2+ months to your first reward</div>
+            <div className="text-slate-600">Claim your reward</div>
           </div>
-          <button className="inline-flex items-center gap-2 rounded-full bg-blue-600 px-4 py-2 text-sm font-bold text-white shadow-sm hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500">
+          <button className="inline-flex items-center gap-1 md:gap-2 rounded-full bg-blue-600 px-2 md:px-4 py-1 md:py-2 text-sm font-bold text-white shadow-sm hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500">
             Join now <ArrowRight className="h-4 w-4" />
           </button>
         </div>
@@ -301,9 +442,18 @@ export default function RewardsLanding() {
       {/* Animations & reduced-motion support */}
       <style jsx>{`
         @media (prefers-reduced-motion: no-preference) {
-          .fade-up { opacity: 0; transform: translateY(16px); animation: fadeUp .6s ease-out forwards; }
+          .fade-up {
+            opacity: 0;
+            transform: translateY(16px);
+            animation: fadeUp 0.6s ease-out forwards;
+          }
         }
-        @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeUp {
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
       `}</style>
     </div>
   );
@@ -325,7 +475,9 @@ function SectionTitle({ eyebrow, title, subtitle }) {
       <div className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50 px-3 py-1 text-xs font-bold uppercase tracking-wider text-blue-700">
         {eyebrow}
       </div>
-      <h2 className="mt-4 text-3xl md:text-4xl font-black tracking-tight text-slate-900">{title}</h2>
+      <h2 className="mt-4 text-3xl md:text-4xl font-black tracking-tight text-slate-900">
+        {title}
+      </h2>
       {subtitle && <p className="mt-2 text-slate-600">{subtitle}</p>}
     </div>
   );
@@ -347,8 +499,20 @@ function ToggleRow({ label, checked, onChange }) {
   return (
     <label className="flex items-center justify-between gap-4 rounded-xl border border-slate-200 px-4 py-3 hover:bg-slate-50">
       <span className="font-medium text-slate-800">{label}</span>
-      <button type="button" role="switch" aria-checked={checked} onClick={() => onChange(!checked)} className={`relative h-7 w-12 rounded-full transition-colors ${checked ? "bg-blue-600" : "bg-slate-300"} focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500`}>
-        <span className={`absolute top-0.5 h-6 w-6 rounded-full bg-white shadow transition-transform ${checked ? "-translate-x-6" : "translate-x-0"}`} />
+      <button
+        type="button"
+        role="switch"
+        aria-checked={checked}
+        onClick={() => onChange(!checked)}
+        className={`relative h-7 w-12 rounded-full transition-colors ${
+          checked ? "bg-blue-600" : "bg-slate-300"
+        } focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500`}
+      >
+        <span
+          className={`absolute top-0.5 h-6 w-6 rounded-full bg-white shadow transition-transform ${
+            checked ? "-translate-x-6" : "translate-x-0"
+          }`}
+        />
       </button>
     </label>
   );
@@ -358,8 +522,12 @@ function RangeRow({ label, value, setValue, max, unit }) {
   return (
     <div className="rounded-xl border border-slate-200 px-4 py-3">
       <div className="flex items-center justify-between">
-        <span className="font-medium text-slate-800">{label} {unit && <span className="text-slate-500">({unit})</span>}</span>
-        <span className="rounded-md bg-slate-100 px-2 py-0.5 text-sm font-bold text-slate-900">{value}</span>
+        <span className="font-medium text-slate-800">
+          {label} {unit && <span className="text-slate-500">({unit})</span>}
+        </span>
+        <span className="rounded-md bg-slate-100 px-2 py-0.5 text-sm font-bold text-slate-900">
+          {value}
+        </span>
       </div>
       <input
         type="range"
