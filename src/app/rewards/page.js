@@ -46,7 +46,7 @@ export default function RewardsLanding() {
   const levels = [
     {
       name: "Explorer",
-      tag: "First reward • time‑gated",
+      tag: "First reward",
       months: "2+ months",
       points: 200,
       rewards: [
@@ -157,14 +157,14 @@ export default function RewardsLanding() {
                   Levels
                 </a>
               </li>
-              <li>
+              {/* <li>
                 <a
                   className="hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded"
                   href="#faq"
                 >
                   FAQ
                 </a>
-              </li>
+              </li> */}
             </ul>
             <button className="hidden md:inline-flex items-center gap-2 rounded-full bg-blue-600 px-5 py-2.5 text-white font-bold shadow-sm hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500">
               Join now <ArrowRight className="h-4 w-4" />
@@ -254,7 +254,7 @@ export default function RewardsLanding() {
           <SectionTitle
             eyebrow="Every action counts"
             title="Earn points for every move"
-            subtitle="Progress is intentionally steady—expect a minimum of 2 months to reach your first reward."
+            subtitle="Progress each time and reach your first reward."
           />
 
           {/* Estimator */}
@@ -332,8 +332,9 @@ export default function RewardsLanding() {
                 {pointsData.map((row, idx) => (
                   <li
                     key={idx}
-                    className="grid grid-cols-1 sm:grid-cols-3 items-center gap-3 px-6 py-5 transition-colors hover:bg-blue-50"
+                    className="items-center px-6 py-3 transition-colors hover:bg-blue-50"
                   >
+                    <div className="flex justify-between">
                     {/* Action */}
                     <div className="flex items-center gap-3 font-semibold text-slate-800">
                       <span className="w-10 h-10 flex items-center justify-center rounded-xl bg-blue-100 text-blue-700 font-bold shadow-sm">
@@ -348,9 +349,10 @@ export default function RewardsLanding() {
                         {row.points}
                       </span>
                     </div>
+                    </div>
 
                     {/* Limit */}
-                    <div className="sm:text-right text-slate-600 font-medium text-sm sm:text-base">
+                    <div className="text-right text-slate-600 font-medium text-sm sm:text-base">
                       {row.limit}
                     </div>
                   </li>
@@ -360,14 +362,14 @@ export default function RewardsLanding() {
           </div>
 
           {/* Fair play note */}
-          <div className="mt-6 flex flex-wrap items-center gap-3 text-sm text-slate-600">
+          <div className="mt-6 flex items-center gap-3 text-sm text-slate-600">
             <CheckCircle2 className="h-4 w-4 text-green-600" /> Daily/weekly
             caps prevent spam; only verified contributions earn points.
           </div>
         </section>
 
         {/* Levels */}
-        <section id="levels" className="mx-auto max-w-7xl px-6 py-16">
+        <section id="levels" className="mx-auto max-w-7xl px-6 py-16 mb-8">
           <SectionTitle
             eyebrow="Aspirational, time‑gated"
             title="Choose your path"
@@ -413,8 +415,7 @@ export default function RewardsLanding() {
                   </ul>
                   {i === 3 && (
                     <p className="mt-3 text-xs font-semibold text-slate-500">
-                      * Partner coupons are introduced after month 4 across the
-                      program.
+                      * Other brands coupons introduced
                     </p>
                   )}
                 </div>
@@ -424,7 +425,7 @@ export default function RewardsLanding() {
         </section>
 
         {/* FAQ */}
-        <section id="faq" className="mx-auto max-w-7xl px-6 pb-24">
+        {/* <section id="faq" className="mx-auto max-w-7xl px-6 pb-24">
           <SectionTitle
             eyebrow="Good to know"
             title="FAQ"
@@ -444,7 +445,7 @@ export default function RewardsLanding() {
               a="Daily/weekly limits safeguard quality: check‑ins (20/mo), reviews (max 2/wk), updates (max 3/wk), referrals (max 2/mo). Only verified actions count."
             />
           </div>
-        </section>
+        </section> */}
       </main>
 
       {/* Desktop CTA */}
