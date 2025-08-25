@@ -1,16 +1,8 @@
+"use client";
+
 import React, { useEffect, useMemo, useState } from "react";
 import { Star, Trophy, Gift, Users, Zap, ArrowRight, Sparkles, ShieldCheck, Target, BarChart3, Clock, CheckCircle2, ChevronRight } from "lucide-react";
 
-/**
- * RewardsLanding – A single-file, production-ready React + Tailwind landing page
- *
- * Improvements vs. previous version (design + dev):
- * - Accessibility: semantic landmarks, alt text, focus-visible rings, skip link, reduced-motion support.
- * - Performance: fewer heavy shadows/filters, no webfont @import, optimized gradients, reusable tiny components.
- * - Responsiveness: mobile-first stacks, table -> card list fallback, sticky mobile CTA.
- * - Clarity: time-gated copy (2+ months to first reward; partner coupons after 4+ months), fair-play caps.
- * - Interactivity: lightweight points estimator (no libs) to make the offer feel personal & lucrative.
- */
 
 export default function RewardsLanding() {
   const [animate, setAnimate] = useState(false);
@@ -79,7 +71,7 @@ export default function RewardsLanding() {
       months: "12+ months",
       points: 2000,
       rewards: [
-        "Big partner coupon bundle (unlocks after month 4)",
+        "Big partner coupon bundle",
         "Official YesCity Ambassador title",
         "Legend badge & VIP event invites",
       ],
@@ -103,22 +95,57 @@ export default function RewardsLanding() {
   }, [monthlyPoints]);
 
   return (
-    <div className="min-h-screen bg-[radial-gradient(1200px_800px_at_10%_10%,rgba(56,189,248,.08),transparent),radial-gradient(800px_600px_at_90%_10%,rgba(59,130,246,.08),transparent)] from-slate-50 via-white to-blue-50 text-slate-800">
-      <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:bg-white focus:text-slate-900 focus:px-4 focus:py-2 focus:rounded-lg focus:ring-2 focus:ring-blue-500">Skip to content</a>
+    <div className="min-h-screen bg-white text-slate-800">
+      <a
+        href="#main"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:bg-white focus:text-slate-900 focus:px-4 focus:py-2 focus:rounded-lg focus:ring-2 focus:ring-blue-500"
+      >
+        Skip to content
+      </a>
 
       {/* Header / Hero */}
       <header className="relative">
-        <div className="mx-auto max-w-7xl px-6 pt-10 pb-6">
-          <nav className="flex items-center justify-between" aria-label="Primary">
+        <div className="mx-auto max-w-7xl px-6 py-6">
+          <nav
+            className="flex items-center justify-between"
+            aria-label="Primary"
+          >
             <div className="flex items-center gap-3">
-              <img src="./YCNewLogo.png" alt="YesCity" className="h-10 w-auto" />
-              <span className="text-lg font-black tracking-tight">YesCity</span>
+              <img src="./YCNewLogo.png" alt="YesCity" className="h-10 w-fit m-auto" />
             </div>
-            <ul className="hidden md:flex items-center gap-6 text-sm font-semibold text-slate-600">
-              <li><a className="hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded" href="#how">How it works</a></li>
-              <li><a className="hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded" href="#points">Points</a></li>
-              <li><a className="hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded" href="#levels">Levels</a></li>
-              <li><a className="hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded" href="#faq">FAQ</a></li>
+            <ul className="hidden md:flex items-center gap-6 text-lg font-semibold text-slate-600">
+              <li>
+                <a
+                  className="hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded"
+                  href="#how"
+                >
+                  How it works
+                </a>
+              </li>
+              <li>
+                <a
+                  className="hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded"
+                  href="#points"
+                >
+                  Points
+                </a>
+              </li>
+              <li>
+                <a
+                  className="hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded"
+                  href="#levels"
+                >
+                  Levels
+                </a>
+              </li>
+              <li>
+                <a
+                  className="hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded"
+                  href="#faq"
+                >
+                  FAQ
+                </a>
+              </li>
             </ul>
             <button className="hidden md:inline-flex items-center gap-2 rounded-full bg-blue-600 px-5 py-2.5 text-white font-bold shadow-sm hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500">
               Join now <ArrowRight className="h-4 w-4" />
@@ -127,27 +154,16 @@ export default function RewardsLanding() {
         </div>
 
         <div className="mx-auto max-w-7xl px-6 pb-16 pt-6 text-center">
-          <div className="relative inline-block">
-            <h1 className="text-4xl md:text-6xl font-black tracking-tight bg-gradient-to-r from-blue-600 via-blue-700 to-blue-900 bg-clip-text text-transparent">
-              The YesCity Rewards Program
-            </h1>
-            <Sparkles aria-hidden className="absolute -right-8 -top-6 h-8 w-8 text-sky-400 motion-safe:animate-pulse" />
-          </div>
+          <h1 className="text-4xl md:text-6xl font-black tracking-tight text-slate-900 pt-8">
+             Rewards Program
+          </h1>
           <p className="mx-auto mt-6 max-w-3xl text-lg md:text-xl text-slate-600">
-            Turn your contributions into <strong className="text-slate-900">recognition</strong>,
-            <strong className="text-slate-900"> influence</strong>, and <strong className="text-slate-900">exclusive perks</strong>.
-            Be more than a user—become a Legend.
+            Turn your contributions into{" "}
+            <strong className="text-slate-900">recognition</strong>,{" "}
+            <strong className="text-slate-900">influence</strong>, and{" "}
+            <strong className="text-slate-900">exclusive perks</strong>. Be more
+            than a user—become a Legend.
           </p>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-            <KPI chipIcon={<Users className="h-4 w-4" />} label="50K+ members" />
-            <KPI chipIcon={<ShieldCheck className="h-4 w-4" />} label="Fair‑play caps" />
-            <KPI chipIcon={<Clock className="h-4 w-4" />} label="First reward in 2+ months" />
-          </div>
-          <div className="mt-8">
-            <a href="#points" className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-white px-6 py-3 text-sm font-bold text-blue-700 shadow-sm hover:shadow md:text-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500">
-              See how to earn points <ChevronRight className="h-4 w-4" />
-            </a>
-          </div>
         </div>
       </header>
 
@@ -332,7 +348,7 @@ function ToggleRow({ label, checked, onChange }) {
     <label className="flex items-center justify-between gap-4 rounded-xl border border-slate-200 px-4 py-3 hover:bg-slate-50">
       <span className="font-medium text-slate-800">{label}</span>
       <button type="button" role="switch" aria-checked={checked} onClick={() => onChange(!checked)} className={`relative h-7 w-12 rounded-full transition-colors ${checked ? "bg-blue-600" : "bg-slate-300"} focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500`}>
-        <span className={`absolute top-0.5 h-6 w-6 rounded-full bg-white shadow transition-transform ${checked ? "translate-x-6" : "translate-x-0"}`} />
+        <span className={`absolute top-0.5 h-6 w-6 rounded-full bg-white shadow transition-transform ${checked ? "-translate-x-6" : "translate-x-0"}`} />
       </button>
     </label>
   );
