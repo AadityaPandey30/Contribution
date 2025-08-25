@@ -17,6 +17,8 @@ import {
   ChevronRight,
 } from "lucide-react";
 
+import Link from "next/link";
+
 export default function RewardsLanding() {
   const [animate, setAnimate] = useState(false);
 
@@ -123,12 +125,12 @@ export default function RewardsLanding() {
             className="flex items-center justify-between"
             aria-label="Primary"
           >
-            <div className="flex items-center gap-3">
-              <img
+            <div className="flex items-center gap-3 ">
+              <a href="www.yescity.in"><img
                 src="./YCNewLogo.png"
                 alt="YesCity"
-                className="h-10 w-fit m-auto"
-              />
+                className="h-10 w-fit m-auto hidden md:block"
+              /></a>
             </div>
             <ul className="hidden md:flex items-center gap-6 text-lg font-semibold text-slate-600">
               <li>
@@ -170,17 +172,52 @@ export default function RewardsLanding() {
           </nav>
         </div>
 
-        <div className="mx-auto max-w-7xl px-6 pb-8 pt-6 text-left md:text-center">
-          <h1 className="text-4xl md:text-6xl font-black tracking-tight text-slate-900 pt-8">
-            Rewards Program
-          </h1>
-          <p className="mx-auto mt-6 max-w-3xl text-lg md:text-xl text-slate-600">
-            Turn your contributions into{" "}
-            <strong className="text-slate-900">recognition</strong>,{" "}
-            <strong className="text-slate-900">influence</strong>, and{" "}
-            <strong className="text-slate-900">exclusive perks</strong>. Be more
-            than a user—become a Legend.
-          </p>
+        <div className="flex flex-col md:flex-row items-center justify-between gap-8 py-12 px-6 md:px-12 rounded-2xl max-w-6xl mx-auto">
+          {/* Left Icon / Image */}
+          <div className="flex-shrink-0 hidden md:block">
+            <img
+              className="w-32 h-32 md:w-40 md:h-40 drop-shadow-lg"
+              src="https://img.icons8.com/?size=100&id=LdhkdyEhp4PW&format=png&color=000000"
+              alt="Rewards Icon"
+            />
+          </div>
+
+          {/* Right Content */}
+          <div className="flex-1 text-center">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-tight">
+              <span className="text-blue-500">YesCity</span> Reward Program
+            </h1>
+            <p className="mt-6 max-w-2xl text-base md:text-lg lg:text-xl text-slate-600 mx-auto">
+              Turn your contributions into{" "}
+              <span className="font-semibold text-slate-900">recognition</span>,{" "}
+              <span className="font-semibold text-slate-900">influence</span>,
+              and{" "}
+              <span className="font-semibold text-slate-900">
+                exclusive perks
+              </span>
+              . Be more than a user—
+              <span className="text-blue-600 font-bold">become a Legend</span>
+              .
+            </p>
+
+            {/* CTA Buttons */}
+            <div className="mt-8 flex items-center justify-center gap-4">
+              <button className="px-4 md:px-6 py-1.5 md:py-3 rounded-full bg-blue-600 text-white text-lg font-semibold shadow-md hover:bg-blue-700 transition">
+                Join Now
+              </button>
+              <button className="px-4 md:px-6 py-1.5 md:py-3 rounded-full border border-blue-600 text-blue-600 text-lg font-semibold hover:bg-indigo-50 transition">
+                Learn More
+              </button>
+            </div>
+          </div>
+
+          <div className="flex-shrink-0">
+            <img
+              className="w-32 h-32 md:w-40 md:h-40 drop-shadow-lg"
+              src="https://img.icons8.com/?size=100&id=LdhkdyEhp4PW&format=png&color=000000"
+              alt="Rewards Icon"
+            />
+          </div>
         </div>
       </header>
 
@@ -471,7 +508,7 @@ function KPI({ chipIcon, label }) {
 
 function SectionTitle({ eyebrow, title, subtitle }) {
   return (
-    <div className="max-w-3xl">
+    <div className="pt-4 text-left md:text-center">
       <div className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50 px-3 py-1 text-xs font-bold uppercase tracking-wider text-blue-700">
         {eyebrow}
       </div>
@@ -510,7 +547,7 @@ function ToggleRow({ label, checked, onChange }) {
       >
         <span
           className={`absolute top-0.5 h-6 w-6 rounded-full bg-white shadow transition-transform ${
-            checked ? "-translate-x-6" : "translate-x-0"
+            checked ? "translate-x-0" : "-translate-x-6"
           }`}
         />
       </button>
