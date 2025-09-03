@@ -1,0 +1,1 @@
+export const AMBASSADORS_COLLECTION = "ambassadors";

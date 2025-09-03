@@ -1,4 +1,37 @@
+"use client";
+import { useState } from "react";
+
 export default function CampusAmbassadorPage() {
+    const [showPopup, setShowPopup] = useState(false);
+  const [form, setForm] = useState({ name: "", email: "", joined: false });
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState("");
+
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setForm({ ...form, [name]: type === "checkbox" ? checked : value });
+  };
+
+  const handleSubmit = async () => {
+    if (!form.joined) return;
+    setLoading(true);
+    try {
+      const res = await fetch("/api/ca", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name: form.name, email: form.email }),
+      });
+      const data = await res.json();
+      setMessage(data.message || "Registered successfully!");
+      setShowPopup(false);
+      setForm({ name: "", email: "", joined: false });
+    } catch (err) {
+      setMessage("Something went wrong!");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="bg-gradient-to-b from-blue-50 via-white to-purple-50 text-slate-800">
       {/* Hero Section */}
@@ -15,7 +48,7 @@ export default function CampusAmbassadorPage() {
             <span className="font-bold text-blue-700">Campus Legend</span>.
           </p>
           <div className="mt-8">
-            <button className="px-8 py-4 bg-blue-600 text-white font-bold rounded-full shadow-lg hover:bg-blue-700 transition">
+            <button onClick={() => setShowPopup(true)} className="px-8 py-4 bg-blue-600 text-white font-bold rounded-full shadow-lg hover:bg-blue-700 transition">
               Apply Now
             </button>
           </div>
@@ -208,6 +241,74 @@ export default function CampusAmbassadorPage() {
           </button>
         </div>
       </section>
+
+       {/* Popup Modal */}
+      {showPopup && (
+        <div className="fixed inset-0 bg-black/50 flex justify-center items-center z-50">
+          <div className="bg-white rounded-2xl p-6 w-[90%] max-w-md shadow-xl relative">
+            <h3 className="text-xl font-bold text-slate-800 mb-4">Become a YesCity Campus Ambassador</h3>
+            <input
+              type="text"
+              name="name"
+              value={form.name}
+              onChange={handleChange}
+              placeholder="Your Name"
+              className="w-full border rounded-lg px-3 py-2 mb-3 focus:outline-blue-500"
+            />
+            <input
+              type="email"
+              name="email"
+              value={form.email}
+              onChange={handleChange}
+              placeholder="Your Email"
+              className="w-full border rounded-lg px-3 py-2 mb-3 focus:outline-blue-500"
+            />
+            <div className="flex items-center mb-4">
+              <input
+                type="checkbox"
+                name="joined"
+                checked={form.joined}
+                onChange={handleChange}
+                className="mr-2"
+              />
+              <label className="text-sm text-slate-600">
+                I have joined the{" "}
+                <a
+                  href="https://chat.whatsapp.com/GKgGJElOr6v8zGqizxK0XW"
+                  target="_blank"
+                  className="text-blue-600 underline"
+                >
+                  WhatsApp community
+                </a>
+              </label>
+            </div>
+            <div className="flex justify-end gap-3">
+              <button
+                onClick={() => setShowPopup(false)}
+                className="px-4 py-2 rounded-lg border text-slate-600"
+              >
+                Cancel
+              </button>
+              <button
+                disabled={!form.joined || loading}
+                onClick={handleSubmit}
+                className={`px-6 py-2 rounded-lg font-semibold text-white ${
+                  form.joined ? "bg-blue-600 hover:bg-blue-700" : "bg-gray-400 cursor-not-allowed"
+                }`}
+              >
+                {loading ? "Sending..." : "Send"}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Message Toast */}
+      {message && (
+        <div className="fixed bottom-5 right-5 bg-green-600 text-white px-4 py-2 rounded-lg shadow-lg">
+          {message}
+        </div>
+      )}
     </div>
   );
 }
