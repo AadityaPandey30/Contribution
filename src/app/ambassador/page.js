@@ -208,7 +208,7 @@ export default function CampusAmbassadorPage() {
             {
               icon: "⏳",
               title: "3-Month Rewards",
-              desc: "Keeps ambassadors engaged long-term.",
+              desc: "Onboard on a true growth journey",
             },
           ].map((item, idx) => (
             <div
