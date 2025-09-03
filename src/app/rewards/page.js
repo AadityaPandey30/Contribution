@@ -126,7 +126,7 @@ export default function RewardsLanding() {
             aria-label="Primary"
           >
             <div className="flex items-center gap-3 ">
-              <a href="www.yescity.in"><img
+              <a href='www.yescity.in'><img
                 src="./YCNewLogo.png"
                 alt="YesCity"
                 className="h-10 w-fit m-auto hidden md:block"
