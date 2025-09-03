@@ -1,7 +1,7 @@
 // app/api/admin/route.js
 import { NextResponse } from "next/server";
 import { addUser, addPoints, getUsers } from "../../../services/leaderboardService.js";
-import { addNote, updateNote, deleteNote, getNotes } from "../../../services/noteService.js";
+import { addNote, updateNote, deleteNote, getNotes } from "../../../services/adminService.js";
 
 export async function POST(req) {
   try {
