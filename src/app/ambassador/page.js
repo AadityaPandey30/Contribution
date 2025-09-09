@@ -2,7 +2,7 @@
 import { useState } from "react";
 
 export default function CampusAmbassadorPage() {
-    const [showPopup, setShowPopup] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
   const [form, setForm] = useState({ name: "", email: "", joined: false });
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
@@ -42,13 +42,16 @@ export default function CampusAmbassadorPage() {
             Program
           </h1>
           <p className="mt-6 text-lg md:text-xl max-w-3xl mx-auto">
-            Be the face of <span className="text-blue-500">YesCity</span> in your
-            college. Gain real-world experience, unlock exclusive recognition,
-            and earn your place as a{" "}
+            Be the face of <span className="text-blue-500">YesCity</span> in
+            your college. Gain real-world experience, unlock exclusive
+            recognition, and earn your place as a{" "}
             <span className="font-bold text-blue-500">Campus Legend</span>.
           </p>
           <div className="mt-8">
-            <button onClick={() => setShowPopup(true)} className="px-8 py-4 bg-blue-600 text-white font-bold rounded-full shadow-lg hover:bg-blue-700 transition">
+            <button
+              onClick={() => setShowPopup(true)}
+              className="px-8 py-4 bg-blue-600 text-white font-bold rounded-full shadow-lg hover:bg-blue-700 transition"
+            >
               Apply Now
             </button>
           </div>
@@ -119,7 +122,7 @@ export default function CampusAmbassadorPage() {
                     Kickstart your journey by bringing friends on board.
                   </p>
                   <p className="mt-3 text-sm text-blue-600 font-semibold text-center">
-                     (Start immediately)
+                    (Start immediately)
                   </p>
                   <ul className="mt-4 space-y-2 text-left text-slate-600  list-disc px-2">
                     <li>Unlimited referrals allowed</li>
@@ -143,7 +146,7 @@ export default function CampusAmbassadorPage() {
                     200 successful referrals.
                   </p>
                   <p className="mt-3 text-sm text-purple-700 font-semibold text-center">
-                    (Unlock at 200 referrals)
+                    (Unlock at 200 referrals after 2 months)
                   </p>
                   <ul className="mt-4 space-y-2 text-left text-slate-600  list-disc px-2">
                     <li>Official Campus Ambassador Certificate</li>
@@ -225,6 +228,42 @@ export default function CampusAmbassadorPage() {
         </div>
       </section>
 
+      {/* What To Do Section */}
+      <section className="max-w-6xl mx-auto px-6 py-16 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold text-slate-900">
+          What To Do?
+        </h2>
+        <p className="mt-4 text-slate-600 text-lg max-w-2xl mx-auto">
+          Simple steps to get started and create your impact as a YesCity Campus
+          Ambassador.
+        </p>
+        <div className="mt-10 grid gap-6 sm:grid-cols-1 md:grid-cols-2">
+          {[
+            {
+              icon: "📢",
+              title: "Promote YesCity",
+              desc: "Spread the word about YesCity and its campaigns in your college or organization. Make your network aware of the opportunities.",
+            },
+            {
+              icon: "📝",
+              title: "Share Referrals",
+              desc: "Collect your friends' or peers' details and help them sign up on YesCity Platform. Each signup through your referral is counted towards your growth!",
+            },
+          ].map((item, idx) => (
+            <div
+              key={idx}
+              className="rounded-2xl border border-blue-100 bg-white shadow-md p-6 hover:shadow-lg hover:-translate-y-1 transition"
+            >
+              <div className="text-3xl">{item.icon}</div>
+              <h3 className="mt-3 font-bold text-xl text-blue-600">
+                {item.title}
+              </h3>
+              <p className="mt-2 text-slate-600">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* Final CTA */}
       <section className="bg-gradient-to-r from-blue-700 to-blue-900 text-white py-20 text-center">
         <h2 className="text-4xl md:text-5xl font-extrabold">
@@ -236,17 +275,22 @@ export default function CampusAmbassadorPage() {
           <span className="font-bold">200+ referrals</span>.
         </p>
         <div className="mt-8">
-          <button onClick={() => setShowPopup(true)} className="px-10 py-4 bg-white text-blue-700 font-bold rounded-full shadow-lg hover:bg-slate-100 transition">
+          <button
+            onClick={() => setShowPopup(true)}
+            className="px-10 py-4 bg-white text-blue-700 font-bold rounded-full shadow-lg hover:bg-slate-100 transition"
+          >
             Apply Now
           </button>
         </div>
       </section>
 
-       {/* Popup Modal */}
+      {/* Popup Modal */}
       {showPopup && (
         <div className="fixed inset-0 bg-black/50 flex justify-center items-center z-50">
           <div className="bg-white rounded-2xl p-6 w-[90%] max-w-md shadow-xl relative">
-            <h3 className="text-xl font-bold text-slate-800 mb-4">Become a YesCity Campus Ambassador</h3>
+            <h3 className="text-xl font-bold text-slate-800 mb-4">
+              Become a YesCity Campus Ambassador
+            </h3>
             <input
               type="text"
               name="name"
@@ -293,7 +337,9 @@ export default function CampusAmbassadorPage() {
                 disabled={!form.joined || loading}
                 onClick={handleSubmit}
                 className={`px-6 py-2 rounded-lg font-semibold text-white ${
-                  form.joined ? "bg-blue-600 hover:bg-blue-700" : "bg-gray-400 cursor-not-allowed"
+                  form.joined
+                    ? "bg-blue-600 hover:bg-blue-700"
+                    : "bg-gray-400 cursor-not-allowed"
                 }`}
               >
                 {loading ? "Sending..." : "Send"}

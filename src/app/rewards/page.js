@@ -126,7 +126,7 @@ export default function RewardsLanding() {
             aria-label="Primary"
           >
             <div className="flex items-center gap-3 ">
-              <a href='www.yescity.in'><img
+              <a href='www.yescity.in/'><img
                 src="./YCNewLogo.png"
                 alt="YesCity"
                 className="h-10 w-fit m-auto hidden md:block"
@@ -205,9 +205,9 @@ export default function RewardsLanding() {
               <button className="px-4 md:px-6 py-1.5 md:py-3 rounded-full bg-blue-600 text-white text-lg font-semibold shadow-md hover:bg-blue-700 transition">
                 Join Now
               </button>
-              <button className="px-4 md:px-6 py-1.5 md:py-3 rounded-full border border-blue-600 text-blue-600 text-lg font-semibold hover:bg-indigo-50 transition">
+              {/* <button className="px-4 md:px-6 py-1.5 md:py-3 rounded-full border border-blue-600 text-blue-600 text-lg font-semibold hover:bg-indigo-50 transition">
                 Learn More
-              </button>
+              </button> */}
             </div>
           </div>
 

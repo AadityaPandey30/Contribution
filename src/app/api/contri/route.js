@@ -100,9 +100,9 @@ export async function GET() {
 export async function POST(request) {
   try {
     await connectDB();
-    
+
     const { contributionId, status, adminRemarks, points = 0 } = await request.json();
-    
+
     if (!contributionId || !status) {
       return NextResponse.json(
         { success: false, error: "Missing required fields" },
@@ -134,27 +134,53 @@ export async function POST(request) {
       );
     }
 
-    // If status is accepted or approved and points are provided, update user points
+    // Update user points with monthly cap logic
     if ((status === 'accepted' || status === 'approved') && points > 0) {
       const user = await User.findById(updatedContribution.userId);
-      
+
       if (user) {
-        await User.findByIdAndUpdate(
-          updatedContribution.userId,
-          {
-            $inc: { 
-              contributionPoints: points,
-              monthlyPoints: points 
-            }
-          }
-        );
+        const now = new Date();
+        const currentMonth = now.getMonth();
+        const currentYear = now.getFullYear();
+        const storedMonth = user.pointsMonth?.getMonth();
+        const storedYear = user.pointsMonth?.getFullYear();
+
+        // Reset monthly points if it's a new month
+        if (storedMonth !== currentMonth || storedYear !== currentYear) {
+          user.monthlyPoints = 0;
+          user.pointsMonth = now;
+        }
+
+        let addedPoints = 0;
+        if (user.monthlyPoints < 90) {
+          const available = 90 - user.monthlyPoints;
+          addedPoints = Math.min(points, available);
+
+          user.monthlyPoints += addedPoints;
+          user.contributionPoints += addedPoints;
+
+          await user.save();
+        }
+
+        return NextResponse.json({
+          success: true,
+          data: updatedContribution,
+          message:
+            addedPoints > 0
+              ? "Contribution status updated and points awarded"
+              : "Contribution status updated, but monthly points limit reached",
+          contributionPoints: user.contributionPoints,
+          monthlyPoints: user.monthlyPoints,
+          addedPoints,
+        });
       }
     }
 
+    // Case when no points need to be updated
     return NextResponse.json({
       success: true,
       data: updatedContribution,
-      message: "Contribution status updated successfully"
+      message: "Contribution status updated successfully",
     });
   } catch (error) {
     console.error("Error updating contribution:", error);
@@ -163,7 +189,8 @@ export async function POST(request) {
       { status: 500 }
     );
   }
-}
+};
+
 
 // PUT Route - Update user contribution points directly
 export async function PUT(request) {
