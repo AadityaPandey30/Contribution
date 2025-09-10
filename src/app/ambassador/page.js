@@ -318,7 +318,7 @@ export default function CampusAmbassadorPage() {
               <label className="text-sm text-slate-600">
                 I have joined the{" "}
                 <a
-                  href="https://chat.whatsapp.com/GKgGJElOr6v8zGqizxK0XW"
+                  href="https://chat.whatsapp.com/CjcoFWi296Q3rz0oz6x3KF"
                   target="_blank"
                   className="text-blue-500 underline"
                 >
