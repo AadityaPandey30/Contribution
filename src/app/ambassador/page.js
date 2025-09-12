@@ -58,6 +58,17 @@ export default function CampusAmbassadorPage() {
         </div>
       </section>
 
+       <div className="relative pb-8 aspect-video max-w-4xl mx-auto m-2 overflow-hidden rounded-none md:rounded-xl shadow-2xl">
+      <iframe
+        src="https://www.youtube.com/embed/oex7ZWcQArQ"
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+        title="YouTube Video"
+        className="absolute top-0 left-0 w-full h-full"
+      ></iframe>
+    </div>
+
       {/* Core Idea */}
       <section className="max-w-6xl mx-auto px-6 py-16 text-center">
         <h2 className="text-3xl md:text-4xl font-bold text-slate-900">
