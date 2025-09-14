@@ -37,7 +37,7 @@ export default function RewardsLanding() {
   const pointsData = [
     { action: "Sign‑up", points: "+2", limit: "One‑time" },
     { action: "Profile completion", points: "+3", limit: "One‑time" },
-    { action: "Daily check‑in", points: "+1", limit: "Max 20/month" },
+    // { action: "Daily check‑in", points: "+1", limit: "Max 20/month" },
     { action: "Write a review", points: "+2", limit: "Max 2/week" },
     { action: "Add/Update city data", points: "+3–5", limit: "Max 3/week" },
     { action: "Referral (verified)", points: "+5", limit: "Max 2/month" },
@@ -51,7 +51,7 @@ export default function RewardsLanding() {
       points: 200,
       rewards: [
         "Early access to beta features",
-        "Featured on Travel Buddy (top placement)",
+        "Featured Profile on YesCity Connect",
         "Explorer badge",
       ],
       gradient: "from-sky-100 to-sky-200",
@@ -74,7 +74,7 @@ export default function RewardsLanding() {
       months: "7–8 months",
       points: 1000,
       rewards: [
-        "Priority Travel Buddy ranking",
+        "Priority YesCity Connect ranking",
         "YesCity special discount bundle",
         "Influencer badge & spotlight feature",
       ],
@@ -86,7 +86,7 @@ export default function RewardsLanding() {
       months: "12+ months",
       points: 2000,
       rewards: [
-        "Big partner coupon bundle",
+        "Discount Coupons",
         "Official YesCity Ambassador title",
         "Legend badge & VIP event invites",
       ],
@@ -126,11 +126,13 @@ export default function RewardsLanding() {
             aria-label="Primary"
           >
             <div className="flex items-center gap-3 ">
-              <a href='www.yescity.in/'><img
-                src="./YCNewLogo.png"
-                alt="YesCity"
-                className="h-10 w-fit m-auto hidden md:block"
-              /></a>
+              <a href="https://www.yescity.in/">
+                <img
+                  src="./YCNewLogo.png"
+                  alt="YesCity"
+                  className="h-10 w-fit m-auto hidden md:block"
+                />
+              </a>
             </div>
             <ul className="hidden md:flex items-center gap-6 text-lg font-semibold text-slate-600">
               <li>
@@ -166,9 +168,11 @@ export default function RewardsLanding() {
                 </a>
               </li> */}
             </ul>
-            <button className="hidden md:inline-flex items-center gap-2 rounded-full bg-blue-600 px-5 py-2.5 text-white font-bold shadow-sm hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500">
-              Join now <ArrowRight className="h-4 w-4" />
-            </button>
+            <a href="www.yescity.in/signup">
+              <button className="hidden md:inline-flex items-center gap-2 rounded-full bg-blue-600 px-5 py-2.5 text-white font-bold shadow-sm hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500">
+                Join now <ArrowRight className="h-4 w-4" />
+              </button>
+            </a>
           </nav>
         </div>
 
@@ -196,15 +200,16 @@ export default function RewardsLanding() {
                 exclusive perks
               </span>
               . Be more than a user—
-              <span className="text-blue-600 font-bold">become a Legend</span>
-              .
+              <span className="text-blue-600 font-bold">become a Legend</span>.
             </p>
 
             {/* CTA Buttons */}
             <div className="mt-8 flex items-center justify-center gap-4">
-              <button className="px-4 md:px-6 py-1.5 md:py-3 rounded-full bg-blue-600 text-white text-lg font-semibold shadow-md hover:bg-blue-700 transition">
-                Join Now
-              </button>
+              <a href="https://www.yescity.in/signup">
+                <button className="px-4 md:px-6 py-1.5 md:py-3 rounded-full bg-blue-600 text-white text-lg font-semibold shadow-md hover:bg-blue-700 transition">
+                  Join Now
+                </button>
+              </a>
               {/* <button className="px-4 md:px-6 py-1.5 md:py-3 rounded-full border border-blue-600 text-blue-600 text-lg font-semibold hover:bg-indigo-50 transition">
                 Learn More
               </button> */}
@@ -244,22 +249,25 @@ export default function RewardsLanding() {
             <FeatureCard
               icon={<Gift className="h-6 w-6" />}
               title="Unlock rewards"
-              desc="Early access, Travel Buddy featuring, Insider community, and later—brand partner benefits."
+              desc="Early access, YesCity Connect featuring, Insider community, and later—brand partner benefits."
             />
           </div>
         </section>
 
         {/* Points – table with mobile cards */}
-        <section id="points" className="mx-auto max-w-7xl px-6 py-8">
-          <SectionTitle
-            eyebrow="Every action counts"
-            title="Earn points for every move"
-            subtitle="Progress each time and reach your first reward."
-          />
+        <section id="points" className="mx-auto max-w-3xl px-6 py-8 ">
+          <div className="relative">
+            <CheckCircle2 className="absolute top-8 right-0 h-4 w-4 text-green-600" />
+            <SectionTitle
+              eyebrow="Every action counts"
+              title="Earn points for every move"
+              subtitle="Progress each time and reach your first reward."
+            />
+          </div>
 
           {/* Estimator */}
-          <div className="mt-8 grid gap-6 lg:grid-cols-2">
-            <div className="rounded-2xl border border-blue-100 bg-white p-6 shadow-sm">
+          <div className="mt-8 mx-auto ">
+            {/* <div className="rounded-2xl border border-blue-100 bg-white p-6 shadow-sm">
               <div className="mb-4 flex items-center gap-2">
                 <BarChart3 className="h-5 w-5 text-blue-600" />
                 <h3 className="text-lg font-bold">
@@ -309,7 +317,7 @@ export default function RewardsLanding() {
                   <span className="text-slate-500">(minimum 2 months)</span>
                 </p>
               </div>
-            </div>
+            </div> */}
 
             {/* Responsive table/cards */}
             <div className="rounded-2xl border border-blue-200 bg-white shadow-md overflow-hidden">
@@ -335,36 +343,30 @@ export default function RewardsLanding() {
                     className="items-center px-6 py-3 transition-colors hover:bg-blue-50"
                   >
                     <div className="flex justify-between">
-                    {/* Action */}
-                    <div className="flex items-center gap-3 font-semibold text-slate-800">
-                      <span className="w-10 h-10 flex items-center justify-center rounded-xl bg-blue-100 text-blue-700 font-bold shadow-sm">
-                        {row.action[0]} {/* Action initial as icon */}
-                      </span>
-                      <span className="truncate">{row.action}</span>
-                    </div>
+                      {/* Action */}
+                      <div className="flex items-center gap-3 font-semibold text-slate-800">
+                        <span className="w-10 h-10 flex items-center justify-center rounded-xl bg-blue-100 text-blue-700 font-bold shadow-sm">
+                          {row.action[0]} {/* Action initial as icon */}
+                        </span>
+                        <span className="truncate">{row.action}</span>
+                      </div>
 
-                    {/* Points */}
-                    <div className="sm:text-center mt-2 sm:mt-0">
-                      <span className="inline-block font-extrabold text-2xl bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
-                        {row.points}
-                      </span>
-                    </div>
+                      {/* Points */}
+                      <div className="sm:text-center mt-2 sm:mt-0">
+                        <span className="inline-block font-extrabold text-2xl bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
+                          {row.points}
+                        </span>
+                      </div>
                     </div>
 
                     {/* Limit */}
-                    <div className="text-right text-slate-600 font-medium text-sm sm:text-base">
+                    {/* <div className="text-right text-slate-600 font-medium text-sm sm:text-base">
                       {row.limit}
-                    </div>
+                    </div> */}
                   </li>
                 ))}
               </ul>
             </div>
-          </div>
-
-          {/* Fair play note */}
-          <div className="mt-6 flex items-center gap-3 text-sm text-slate-600">
-            <CheckCircle2 className="h-4 w-4 text-green-600" /> Daily/weekly
-            caps prevent spam; only verified contributions earn points.
           </div>
         </section>
 
@@ -392,9 +394,9 @@ export default function RewardsLanding() {
                         {lvl.tag}
                       </p>
                     </div>
-                    <div className="rounded-full bg-sky-100 px-3 py-1 text-xs font-bold text-sky-800">
+                    {/* <div className="rounded-full bg-sky-100 px-3 py-1 text-xs font-bold text-sky-800">
                       {lvl.months}
-                    </div>
+                    </div> */}
                   </div>
                   <div className="text-3xl font-black bg-gradient-to-r from-blue-700 to-blue-900 bg-clip-text text-transparent">
                     {lvl.points} pts
@@ -458,10 +460,18 @@ export default function RewardsLanding() {
             Start small, stay consistent, and unlock perks that put you at the
             heart of YesCity.
           </p>
+          <Link href="https://www.yescity.in/terms-of-use">
+            <span className="flex gap-1 text-xs items-center">
+              <CheckCircle2 className="h-4 w-4 text-green-600" />
+              T&C Apply
+            </span>
+          </Link>
         </div>
-        <button className="inline-flex items-center gap-2 rounded-full bg-blue-600 px-6 py-3 font-bold text-white shadow-sm hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500">
-          Start earning points <ArrowRight className="h-5 w-5" />
-        </button>
+        <a href="https://www.yescity.in/signup">
+          <button className="inline-flex items-center gap-2 rounded-full bg-blue-600 px-6 py-3 font-bold text-white shadow-sm hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500">
+            Start earning points <ArrowRight className="h-5 w-5" />
+          </button>
+        </a>
       </section>
 
       {/* Sticky mobile CTA */}
@@ -470,10 +480,18 @@ export default function RewardsLanding() {
           <div className="text-sm">
             <div className="font-black">Climb the ladder</div>
             <div className="text-slate-600">Claim your reward</div>
+            <Link href="https://www.yescity.in/terms-of-use">
+            <span className="flex gap-1 text-xs items-center font-light">
+              <CheckCircle2 className="h-3 w-3 text-green-600" />
+              T&C Apply
+            </span>
+          </Link>
           </div>
-          <button className="inline-flex items-center gap-1 md:gap-2 rounded-full bg-blue-600 px-2 md:px-4 py-1 md:py-2 text-sm font-bold text-white shadow-sm hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500">
-            Join now <ArrowRight className="h-4 w-4" />
-          </button>
+          <a href="https://www.yescity.in/signup">
+            <button className="inline-flex items-center gap-1 md:gap-2 rounded-full bg-blue-600 px-2 md:px-4 py-1 md:py-2 text-sm font-bold text-white shadow-sm hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500">
+              Join now <ArrowRight className="h-4 w-4" />
+            </button>
+          </a>
         </div>
       </div>
 
