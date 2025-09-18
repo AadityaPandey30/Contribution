@@ -168,7 +168,7 @@ export default function RewardsLanding() {
                 </a>
               </li> */}
             </ul>
-            <a href="www.yescity.in/signup">
+            <a href="https://www.yescity.in">
               <button className="hidden md:inline-flex items-center gap-2 rounded-full bg-blue-600 px-5 py-2.5 text-white font-bold shadow-sm hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500">
                 Join now <ArrowRight className="h-4 w-4" />
               </button>
