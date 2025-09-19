@@ -7,7 +7,7 @@ const connectDB = async () => {
     return;
   }
   try {
-    await mongoose.connect(process.env.MONGO_URI || "mongodb+srv://yescitycompany:oXXCaD1Whc3mLUca@cluster0.k2m5o.mongodb.net/newDatabaseName");
+    await mongoose.connect(process.env.MONGO_URI || "mongodb+srv://yescitycompany:oXXCaD1Whc3mLUca@cluster0.k2m5o.mongodb.net/YesCity3");
     console.log("MongoDB connected");
   } catch (error) {
     console.error("MongoDB connection error:", error);
