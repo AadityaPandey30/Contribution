@@ -12,6 +12,10 @@ const poppins = Poppins({
   weight: ["400", "500", "600", "700"], // optional, choose weights you need
 });
 
+const baseUrl = process.env.NEXT_PUBLIC_FRONTEND_URL || 'http://localhost:3000';
+
+const imageUrl = `${baseUrl}/images/deep.png`;
+
 export const metadata = {
   title: "YesCity Rewards",
   description: "This page is describes the rewards and campus ambassador program at YesCity",
